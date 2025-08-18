@@ -1,0 +1,106 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into Chinese, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+�手走到里间，关上了门。师兄们看到师父生气了，感到很害怕，纷纷责怪孙悟空。
+　　孙悟空既不怕，又不生气，心里反而十分高兴。当天晚上，悟空假装睡着了，可是一到半夜，就悄悄起来，从前门出去，等到三更，绕到后门口，看见门半开半闭，高兴地不得了，心想∶“哈哈，我没有猜错师父的意思。”
+　　孙悟空走了进去，看见祖�
+------------------------
+output:
+("entity"{tuple_delimiter}孙悟空{tuple_delimiter}人物{tuple_delimiter}孙悟空是故事中的主要角色，他不害怕师父的生气，并感到高兴。)
+{record_delimiter}
+("entity"{tuple_delimiter}师父{tuple_delimiter}人物{tuple_delimiter}师父是孙悟空的老师，他对弟子们的行为感到生气。)
+{record_delimiter}
+("entity"{tuple_delimiter}师兄们{tuple_delimiter}人物{tuple_delimiter}师兄们是师父的其他弟子，他们看到师父生气后感到害怕，并责怪孙悟空。)
+{record_delimiter}
+("relationship"{tuple_delimiter}孙悟空{tuple_delimiter}师父{tuple_delimiter}孙悟空是师父的弟子，师父对他的行为感到生气。{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}师兄们{tuple_delimiter}孙悟空{tuple_delimiter}师兄们责怪孙悟空因为师父生气。{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+text:
+。他下了木筏，登上了岸，看见岸边有许多人都在干活，有的捉鱼，有的打天上的大雁，有的挖蛤蜊，有的淘盐，他悄悄地走过去，没想到，吓得那些人将东西一扔，四处逃命。
+　　这一天，他来到一座高山前，突然从半山腰的树林里传出一阵美妙的歌声，唱的是一些关于成仙的话。猴王想∶这个唱歌的人一定是神仙，就顺着歌声找去
+------------------------
+output:
+("entity"{tuple_delimiter}木筏{tuple_delimiter}物体{tuple_delimiter}木筏是猴王所用的交通工具，用于过河或海的活动)
+{record_delimiter}
+("entity"{tuple_delimiter}岸{tuple_delimiter}地方{tuple_delimiter}岸是河流或海洋的边缘，有许多人在岸边活动)
+{record_delimiter}
+("entity"{tuple_delimiter}人{tuple_delimiter}个体{tuple_delimiter}岸边的许多人从事不同的活动，如捕鱼、打雁、挖蛤蜊和淘盐)
+{record_delimiter}
+("entity"{tuple_delimiter}鱼{tuple_delimiter}生物{tuple_delimiter}鱼是岸边人们捕捉的水生生物)
+{record_delimiter}
+("entity"{tuple_delimiter}天鹅{tuple_delimiter}生物{tuple_delimiter}天鹅是一些人在岸边捕打的飞禽)
+{record_delimiter}
+("entity"{tuple_delimiter}蛤蜊{tuple_delimiter}生物{tuple_delimiter}蛤蜊是岸边被人们挖掘的海洋生物)
+{record_delimiter}
+("entity"{tuple_delimiter}盐{tuple_delimiter}物品{tuple_delimiter}盐是岸边人们淘取并利用的物品)
+{record_delimiter}
+("entity"{tuple_delimiter}猴王{tuple_delimiter}人物{tuple_delimiter}猴王是故事的主角，追随美妙的歌声寻找神仙)
+{record_delimiter}
+("entity"{tuple_delimiter}山{tuple_delimiter}地形{tuple_delimiter}山是猴王在故事中到达的高地，代表了某种挑战和转折)
+{record_delimiter}
+("entity"{tuple_delimiter}歌声{tuple_delimiter}声音{tuple_delimiter}歌声是一种美妙的声音，吸引猴王去寻找发声者)
+{record_delimiter}
+("entity"{tuple_delimiter}神仙{tuple_delimiter}个体{tuple_delimiter}发出歌声的人被猴王认为是神仙，象征着超自然存在)
+{record_delimiter}
+("relationship"{tuple_delimiter}猴王{tuple_delimiter}木筏{tuple_delimiter}猴王使用木筏作为交通工具来到岸边{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}人{tuple_delimiter}岸{tuple_delimiter}岸边有许多人在进行各种活动{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}鱼{tuple_delimiter}人{tuple_delimiter}岸边有人捕捉鱼{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}天鹅{tuple_delimiter}人{tuple_delimiter}岸边有人打天鹅{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}蛤蜊{tuple_delimiter}人{tuple_delimiter}岸边有人挖掘蛤蜊{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}盐{tuple_delimiter}人{tuple_delimiter}岸边有人淘盐{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}猴王{tuple_delimiter}山{tuple_delimiter}猴王来到高山前{tuple_delimiter}5)
+{record_delimiter}
+("relationship"{tuple_delimiter}歌声{tuple_delimiter}猴王{tuple_delimiter}猴王被美妙的歌声吸引，追随声音的来源{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}神仙{tuple_delimiter}歌声{tuple_delimiter}猴王认为发出歌声的人是神仙{tuple_delimiter}8)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:
