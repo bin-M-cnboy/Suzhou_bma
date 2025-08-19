@@ -14,22 +14,22 @@
 调研论文主要围绕 **AI Agent** 展开。具体可分为以下方向：
 
 ### AIOS
-以 *LLM as OS, Agents as Apps<sup>[1-Report](SuZhou_Study/Report_PPTs/1-Report-20250712.pdf)</sup>* 为主线，对 AIOS 的整体架构及各个重要组件进行探索。
-我根据AIOS有关论文，梳理了一条完整的技术发展路线<sup>[2-Report](SuZhou_Study/Report_PPTs/2-Report-20250716.pdf)</sup>，并且具体分析了整个架构<sup>[4-Report](SuZhou_Study/Report_PPTs/4-Report-20250718.pdf)</sup>。
+以 *LLM as OS, Agents as Apps<sup>[1-Report](Report_PPTs/1-Report-20250712.pdf)</sup>* 为主线，对 AIOS 的整体架构及各个重要组件进行探索。
+我根据AIOS有关论文，梳理了一条完整的技术发展路线<sup>[2-Report](Report_PPTs/2-Report-20250716.pdf)</sup>，并且具体分析了整个架构<sup>[4-Report](Report_PPTs/4-Report-20250718.pdf)</sup>。
 
 ### Graph and Agent
-以 *Graphs Meet AI Agents<sup>[5-Report](SuZhou_Study/Report_PPTs/5-Report-20250721-图基智能体综述.pdf)</sup>* 为主线，探索了**图技术**与**智能体技术**之间交叉领域的一些问题。
+以 *Graphs Meet AI Agents<sup>[5-Report](Report_PPTs/5-Report-20250721-图基智能体综述.pdf)</sup>* 为主线，探索了**图技术**与**智能体技术**之间交叉领域的一些问题。
 之后我针对于其中的**拓扑优化多智能体通信框架**方向进行了我的首次论文复现尝试，复现在艰难中进行，期间受师兄们指点，学习积累了宝贵的经验。
 最后，我完成了两种不同实现方式的实验复现：
-- Lab1 --- API接入openai大模型<sup>[6-Report](SuZhou_Study/Report_PPTs/6-Report-20250723.pdf)</sup>
-- Lab2 --- 通过vllm使用本地qwen小模型<sup>[7-Report](SuZhou_Study/Report_PPTs/7-Report-20250725.pdf)</sup>
+- Lab1 --- API接入openai大模型<sup>[6-Report](Report_PPTs/6-Report-20250723.pdf)</sup>
+- Lab2 --- 通过vllm使用本地qwen小模型<sup>[7-Report](Report_PPTs/7-Report-20250725.pdf)</sup>
 
-之后，我又对Graph-learnig Agents方向中的工具调用方向<sup>[8-Report](SuZhou_Study/Report_PPTs/8-Report-20250801-工具调用方向.pdf)</sup>和记忆组织方向<sup>[9-Report](SuZhou_Study/Report_PPTs/9-Report-20250804-记忆组织方向.pdf)</sup>进行更加细致的探索。
+之后，我又对Graph-learnig Agents方向中的工具调用方向<sup>[8-Report](Report_PPTs/8-Report-20250801-工具调用方向.pdf)</sup>和记忆组织方向<sup>[9-Report](Report_PPTs/9-Report-20250804-记忆组织方向.pdf)</sup>进行更加细致的探索。
 发现**GraphRAG**这一流行且充满潜力的研究方向。
 
 ### GraphRAG
 **检索增强生成(RAG)** 目前已被广泛应用，而 **基于图的检索增强生成(GraphRAG)** 则作为一个崭新的交叉领域备受瞩目。
-我整理了近期的一些研究成果<sup>[10-Report](SuZhou_Study/Report_PPTs/10-Report-20250810-GraphRAG.pdf)</sup>，在与徐师兄的交流后对基于因果图的检索增强生成(CausalRAG)进行进一步的调研<sup>[11-Report](SuZhou_Study/Report_PPTs/11-Report-20250813-RAGandcCausalRAG.pdf)</sup>，发现此领域现有研究较少且富有研究价值，并计划进行进一步的研究。
+我整理了近期的一些研究成果<sup>[10-Report](Report_PPTs/10-Report-20250810-GraphRAG.pdf)</sup>，在与徐师兄的交流后对基于因果图的检索增强生成(CausalRAG)进行进一步的调研<sup>[11-Report](Report_PPTs/11-Report-20250813-RAGandcCausalRAG.pdf)</sup>，发现此领域现有研究较少且富有研究价值，并计划进行进一步的研究。
 
 ## 2. 代码经验💻
 在复现实验和交流过程中，我收获到许多实用的代码经验。
