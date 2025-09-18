@@ -20,7 +20,7 @@ class MA:
             cmd = [
                 "/data0/bma/env/agentprune/bin/python", # 指定Python解释器路径                        ###
                 "-m", "vllm.entrypoints.openai.api_server",
-                "--model", "/data0/bma/models/Qwen3-8B",  # 你的本地模型路径                         ###
+                "--model", "/data0/bma/models/Qwen3-8B",  # 你的本地模型路径                          ###
                 "--dtype", "float16",  # 根据硬件能力选择float16或bfloat16
                 "--tensor-parallel-size", "1",  # 单GPU部署
                 "--api-key", os.environ['api_key'],  # 使用配置的API_KEY

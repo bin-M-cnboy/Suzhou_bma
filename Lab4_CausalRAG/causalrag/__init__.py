@@ -10,7 +10,7 @@ CausalRAG: Causal Graph Enhanced Retrieval-Augmented Generation
 __version__ = "0.1.0"
 __author__ = "CausalRAG Team"
 import sys
-sys.path.append("/data0/bma/LAB_CausalRAG/causalrag/evaluation")
+sys.path.append("/data0/bma/SuZhou_Study/Lab4_CausalRAG/causalrag/evaluation")# 临时添加路径
 
 # Core components
 from .pipeline import CausalRAGPipeline
