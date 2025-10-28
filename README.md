@@ -1,5 +1,5 @@
 <!-- GitHub 兼容的语言切换（使用锚点链接，无需 JavaScript） -->
-[<kbd>🇨🇳 中文</kbd>](/workspaces/Suzhou_bma/README.md#zh-CN) · [<kbd>🇬🇧 English</kbd>](/workspaces/Suzhou_bma/README.md#en)
+[<kbd>简体中文</kbd>](/workspaces/Suzhou_bma/README.md#zh-CN) · [<kbd>English</kbd>](/workspaces/Suzhou_bma/README.md#en)
 
 <a id="zh-CN"></a>
 
