@@ -1,11 +1,10 @@
-<!-- 标签切换控件 -->
-<div class="tab">
-  <button class="tablinks active" onclick="openLang(event, 'zh-CN')">中文</button>
-  <button class="tablinks" onclick="openLang(event, 'en')">English</button>
-</div>
+<!-- GitHub 兼容的语言切换（使用锚点链接，无需 JavaScript） -->
+[🇨🇳 中文](#zh-CN) | [🇬🇧 English](#en)
+
+<a id="zh-CN"></a>
 
 <!-- 中文内容 -->
-<div id="zh-CN" class="tabcontent" style="display:block">
+<div class="tabcontent">
 # 学习总结💡💡💡
 
 学生马斌，于大一暑期期间(2025.7.12 - 2025.8.24)有幸受徐宏力老师引荐，到<u>中科大苏州高研院</u>进行学习交流。  
@@ -84,7 +83,9 @@
 </div>
 
 <!-- 英文内容 -->
-<div id="en" class="tabcontent">
+<a id="en"></a>
+<div class="tabcontent">
+
 # Study Summary 💡💡💡
 
 Author: Ma Bin
