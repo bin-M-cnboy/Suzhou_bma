@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suzhou_bma — README Language Switcher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <style>
+      body { max-width: 900px; margin: 2rem auto; }
+      .lang-buttons { margin-bottom: 1rem; }
+      .lang-buttons button { margin-right: 0.5rem; }
+      #notice { font-size: 0.9rem; color: #555; margin-bottom: 0.8rem; }
+      #content { border-top: 1px solid #e6e6e6; padding-top: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h2>Suzhou_bma — README Language Switcher</h2>
+    <div id="notice">
+      This page dynamically loads the repository README files and renders them in the browser. Use the buttons to switch language.
+    </div>
+
+    <div class="lang-buttons">
+      <button id="btn-zh">简体中文</button>
+      <button id="btn-en">English</button>
+      <button id="btn-raw" title="Open raw README in new tab">Open raw file</button>
+    </div>
+
+    <div id="content">Loading...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script>
+      // Repo info — update if repository is moved
+      const OWNER = 'bin-M-cnboy';
+      const REPO = 'Suzhou_bma';
+      const BRANCH = 'main';
+
+      const urls = {
+        zh: `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`,
+        en: `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README_en.md`
+      };
+
+      const contentEl = document.getElementById('content');
+      const btnZh = document.getElementById('btn-zh');
+      const btnEn = document.getElementById('btn-en');
+      const btnRaw = document.getElementById('btn-raw');
+
+      function setActive(lang) {
+        btnZh.disabled = (lang === 'zh');
+        btnEn.disabled = (lang === 'en');
+      }
+
+      async function loadAndRender(lang) {
+        contentEl.innerHTML = 'Loading...';
+        try {
+          const res = await fetch(urls[lang]);
+          if (!res.ok) throw new Error('File not found');
+          const md = await res.text();
+          const html = marked.parse(md);
+          const clean = DOMPurify.sanitize(html);
+          contentEl.innerHTML = clean;
+          setActive(lang);
+          btnRaw.onclick = () => window.open(urls[lang], '_blank');
+        } catch (err) {
+          contentEl.innerHTML = `<p>Failed to load README (${lang}): ${err.message}. <a href="${urls[lang]}" target="_blank">Open raw file</a></p>`;
+        }
+      }
+
+      btnZh.addEventListener('click', () => loadAndRender('zh'));
+      btnEn.addEventListener('click', () => loadAndRender('en'));
+
+      // Try to detect preferred language from browser
+      const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      if (userLang.startsWith('zh')) loadAndRender('zh'); else loadAndRender('en');
+    </script>
+  </body>
+</html>
