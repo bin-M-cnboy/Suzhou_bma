@@ -1,5 +1,5 @@
 <!-- GitHub 兼容的语言切换（使用锚点链接，无需 JavaScript） -->
-[🇨🇳 中文](#zh-CN) | [🇬🇧 English](#en)
+[<kbd>🇨🇳 中文</kbd>](/workspaces/Suzhou_bma/README.md#zh-CN) · [<kbd>🇬🇧 English</kbd>](/workspaces/Suzhou_bma/README.md#en)
 
 <a id="zh-CN"></a>
 
@@ -152,37 +152,5 @@ No part of this repository may be used, copied, modified, distributed, or otherw
 *Last updated: 2025.10.28*
 
 </div>
-
-<!-- 切换逻辑（JavaScript） -->
-<script>
-function openLang(evt, langName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(langName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-
-<!-- 简单样式（可选） -->
-<style>
-.tab { margin-bottom: 16px; }
-.tab button {
-  padding: 8px 16px;
-  margin-right: 8px;
-  cursor: pointer;
-  background-color: #f1f1f1;
-  border: none;
-  border-radius: 4px;
-}
-.tab button.active { background-color: #ddd; }
-.tabcontent { margin-top: 8px; }
-</style>
 
 
