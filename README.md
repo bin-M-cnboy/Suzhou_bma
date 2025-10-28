@@ -1,3 +1,6 @@
+[![简体中文](https://img.shields.io/badge/语言-简体中文-brightgreen)](./README.md)
+[![English](https://img.shields.io/badge/Language-English-blue)](./README_en.md)
+
 # 学习总结💡💡💡
 
 学生马斌，于大一暑期期间(2025.7.12 - 2025.8.24)有幸受徐宏力老师引荐，到<u>中科大苏州高研院</u>进行学习交流。  
