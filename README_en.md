@@ -38,7 +38,7 @@ During experiments and reproduction attempts, I gained practical coding experien
 - Using Git & GitHub for code management
 - Fixing import problems by adjusting system paths
 
-## 3. Skills Learned 🌏
+## 3. Practical skills 🌏
 Beyond the required tasks, I self-studied several useful skills. Notable items include:
 - Creating PPTs effectively
 - Zotero for literature management and paper search
